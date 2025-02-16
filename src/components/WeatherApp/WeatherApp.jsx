@@ -31,9 +31,8 @@ function WeatherApp() {
     async (city = text, options) => {
       setReport((prev) => ({ ...prev, loading: true, cityNotFound: false }));
 
-      const url = `https://api.openweathermap.org/data/2.5/weather?${
-        options ? options : `q=${city}`
-      }&appid=${API_KEY}&units=metric`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?${options ? options : `q=${city}`
+        }&appid=${API_KEY}&units=metric`;
 
       try {
         const res = await fetch(url);
@@ -115,6 +114,11 @@ function WeatherApp() {
     navigate(`/?city=${text}`);
   };
 
+  const handleRecentSearchClick = (city) => {
+    navigate(`/?city=${city}`);
+    search(city)
+  }
+
   return (
     <>
       <Navbar
@@ -123,7 +127,7 @@ function WeatherApp() {
         handleKeyDown={handleSearch}
         search={search}
         history={currentHistory}
-        handleHistoryClick={(city) => navigate(`/?city=${city}`)}
+        handleHistoryClick={handleRecentSearchClick}
       />
       <div className="container">
         <WeatherDetails report={report} />
