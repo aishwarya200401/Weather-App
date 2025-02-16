@@ -1,14 +1,16 @@
-import React from 'react';
-import WeatherApp from './components/WeatherApp';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import WeatherApp from "./components/WeatherApp/WeatherApp";
+import "./App.css";
 
 function App() {
   return (
-    <div className="app-container">
-      <WeatherApp />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<WeatherApp />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
-

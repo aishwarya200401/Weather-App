@@ -1,0 +1,36 @@
+.history-dropdown {
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+}
+.history-dropdown p {
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  border: 1px solid white;
+  color: white;
+}
+.history-list {
+  width: 100%;
+  position: absolute;
+  top: 65px;
+  background-color: white;
+  color: black;
+  list-style: none;
+  border-radius: 5px;
+  max-height: 0;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: max-height 0.3s ease-in-out;
+}
+.history-dropdown:hover .history-list {
+  max-height: 999px;
+}
+.history-list li {
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.history-list li:hover {
+  background-color: #e0e0e0;
+}
